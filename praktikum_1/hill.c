@@ -18,7 +18,7 @@ void main()
 void getKeyMessage()
 {
     int i, j;
-    char msg[3];
+    char msg[4]; // Menambah satu elemen untuk karakter null
 
     printf("Masukkan matriks 3x3 :\n");
 
@@ -33,7 +33,7 @@ void getKeyMessage()
     scanf("%s", msg);
 
     for (i = 0; i < 3; i++)
-        mes[i][0] = msg[i] - 97;
+        mes[i][0] = msg[i] - 'a'; // Menggunakan 'a' bukan 97
 }
 
 void encryption()
