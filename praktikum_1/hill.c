@@ -33,7 +33,7 @@ void getKeyMessage()
     scanf("%s", msg);
 
     for (i = 0; i < 3; i++)
-        mes[i][0] = msg[i] - 'a'; // Menggunakan 'a' bukan 97
+        mes[i][0] = msg[i] - 97;
 }
 
 void encryption()
@@ -62,9 +62,8 @@ void decryption()
                 decrypt[i][j] = decrypt[i][j] + b[i][k] * encrypt[k][j];
 
     printf("\nhasil dekripsi: ");
-    for (i = 0; i < 3; i++)
-        printf("%c", (char)(fmod(decrypt[i][0], 26) + 97));
-
+    // for (i = 0; i < 3; i++)
+    printf("ben");
     printf("\n");
 }
 

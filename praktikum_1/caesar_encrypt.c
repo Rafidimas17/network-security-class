@@ -1,10 +1,8 @@
 #include <stdio.h>
-
 int main()
 {
     char message[3], ch;
     int i, key;
-
     printf("Enter a message to encrypt: ");
     gets(message);
     printf("Enter key: ");
