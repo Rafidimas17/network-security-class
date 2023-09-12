@@ -4,7 +4,7 @@ char arr[26][26];
 char message[22], key[22], emessage[22], retMessage[22];
 int findRow(char);
 int findColumn(char);
-int findDecRow(char);
+int findDecRow(char, int);
 
 int main()
 {
@@ -29,63 +29,63 @@ int main()
         printf("\nEnter the key\n");
         gets(key);
 
-        for (i = 0; key[i] != NULL; i++)
+        // encryption
+        for (i = 0; key[i] != '\0'; i++)
         {
             c = findRow(key[i]);
             r = findColumn(message[i]);
             emessage[i] = arr[r][c];
         }
+
         emessage[i] = '\0';
         printf("\nEncrypted message is:\n\n");
-        for (i = 0; emessage[i] != NULL; i++)
-        {
+        for (i = 0; emessage[i] != '\0'; i++)
 
             printf("%c", emessage[i]);
-        }
 
         // decrypted
-        for (i = 0; key[i] != NULL; i++)
+        for (i = 0; key[i] != '\0'; i++)
         {
             c = findColumn(key[i]);
             r = findDecRow(emessage[i], c);
             retMessage[i] = arr[r][0];
         }
-        retMessage[i] = "\0";
+        retMessage[i] = '\0';
         printf("\nMessage Retrieved is:\n\n");
-        for (i = 0; retMessage[i] != NULL; i++)
+        for (i = 0; retMessage[i] != '\0'; i++)
         {
 
             printf("%c", retMessage[i]);
-            getch();
+            getchar();
             return (0);
         }
     }
-    int findRow(char c)
+}
+int findRow(char c)
+{
+    int i;
+    for (i = 0; i < 26; i++)
     {
-        int i;
-        for (i = 0; i < 26; i++)
-        {
-            if (arr[0][i] == c)
-                return (i);
-        }
+        if (arr[0][i] == c)
+            return (i);
     }
+}
 
-    int findColumn(char c)
+int findColumn(char c)
+{
+    int i;
+    for (i = 0; i < 26; i++)
     {
-        int i;
-        for (i = 0; i < 26; i++)
-        {
-            if (arr[i][0] == c)
-                return (i);
-        }
+        if (arr[i][0] == c)
+            return (i);
     }
-    int findDecRow(char c, int j)
+}
+int findDecRow(char c, int j)
+{
+    int i;
+    for (i = 0; i < 26; i++)
     {
-        int i;
-        for (i = 0; i < 26; i++)
-        {
-            if (arr[i][j] == c)
-                return (i);
-        }
+        if (arr[i][j] == c)
+            return (i);
     }
 }
